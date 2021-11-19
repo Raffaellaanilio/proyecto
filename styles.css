@@ -13,13 +13,6 @@
     text-align: center;
 }
 
-#barra_navegacion2{
-    margin-top: 2%;
-    justify-items: center;
-    text-align: center;
-}
-
-
 .titulo{
     font-family: 'Lobster', cursive;
     font-weight: bold;
@@ -51,6 +44,7 @@
     border-radius: 15%;
     opacity: 0.6;
     transition: 0.5s;
+    font-size: 22px;
 }
 
 #myCarousel{
@@ -67,6 +61,78 @@
 
 img
 {
-   width: 50%;
+   width: 60%;
    margin: auto;
+}
+
+a{
+    color: #333333;
+
+}
+
+a:hover{
+    color: #333333;
+    text-decoration: none;
+
+}
+
+#contenedor{
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    float: right;
+}
+
+#sidebar{
+    float: left;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+    width:25%;
+    border-style: 5%;
+    margin-left: 1%;
+}
+
+.productos{
+    font-family: 'Lobster', cursive;
+    font-weight: normal;
+    font-size: 20px;
+    width: 30%;
+    height: 60%;
+    border-color: #333333;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5%;
+    margin: 10px;
+    float: right;
+}
+
+.carrito{
+    border-radius: 8%;
+    padding: 20px;
+}
+
+.carrito:hover{
+background-color: antiquewhite;
+}
+
+.search-container button {
+    padding: 1px 1px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius:5% ;
+  }
+
+input {
+    width: 50%;
+    padding: 1px;
+    margin-top: 8px;
+    font-size: 20px;
+    border: none;
+    background-color:papayawhip;
+    border-radius: 5%;
 }

@@ -57,13 +57,14 @@ for (let i=0 ; i < productos.length ; i++){
   `
 }
 
-input.addEventListener(click, mandarAlCarrito);
+
+/* input.addEventListener(click, mandarAlCarrito);
 
 function mandarAlCarrito(){
   let contador = 0;
   const agregarCarrito = document.querySelector(".carrito");
   
-}
+} */
 
 /* //Creación de función flecha para que el usuario pueda ver la lista de productos disponibles
 const verProductos = (productos) => {
