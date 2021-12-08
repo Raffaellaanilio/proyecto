@@ -13,6 +13,9 @@
     <script src="https://kit.fontawesome.com/91822fdb88.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
     <link href="styles.css" rel="stylesheet" type="text/css">
     <title>Panadería</title>
 </head>
@@ -24,14 +27,15 @@
         <div class="card col-3 botones">Nosotros
           <i class="fas fa-user-friends"></i>
         </div>
-        <a href="shop.html"><div class="card col-3 botones">Tienda
+        <a href="shop.html"><div class="card col-3 botones"><a href="shop.html">Tienda</a>
           <i class="fas fa-store"></i>
         </div></a>
         <div class="card col-3 botones">Contacto
           <i class="fas fa-address-book"></i>
         </div>
-        <div class="card col-3 botones">Carrito
+        <div class="card col-3 botones botonMiniCarrito">Carrito
             <i class="fas fa-shopping-cart"></i>
+            <div class="contador"></div>
         </div>
     </div>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -71,6 +75,10 @@
           <span class="glyphicon glyphicon-chevron-right"></span>
           <span class="sr-only">Next</span>
         </a>
+      </div>
+
+      <div class="card miniCarrito">
+        <i id="cerrar" class="fas fa-times cerrar"></i>
       </div>
           
     <div class="card m-0 row justify-content-center" id="barra_navegacion2">

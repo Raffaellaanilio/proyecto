@@ -17,7 +17,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   crossorigin="anonymous"></script>
   <link href="styles.css" rel="stylesheet" type="text/css">
-    <title>Panadería</title>
+    <title>Panadería - Carrito</title>
 </head>
 <body>
     <div id="barra_navegacion">
@@ -27,33 +27,30 @@
         <div class="card col-3 botones">Nosotros
           <i class="fas fa-user-friends"></i>
         </div>
-        <div class="card col-3 botones"><a href="shop.html">Tienda</a>
+        <div class="card col-3 botones">
+          <a href="shop.html">Tienda</a>
           <i class="fas fa-store"></i>
         </div>
         <div class="card col-3 botones">Contacto
           <i class="fas fa-address-book"></i>
         </div>
-        <div class="card col-3 botones botonMiniCarrito">Carrito
-          <i class="fas fa-shopping-cart"></i>
-          <div class="contador"></div>
-      </div>
+        <div class="card col-3 botones">Carrito
+            <i class="fas fa-shopping-cart"></i>
+            <div class="contador"></div>   
+        </div>
     </div>
     
 
     <div id="alertaCarrito" class="alert alert-success justify-content-center">
+    <i id="cerrar" class="fas fa-times"></i>
     </div>
 
-    <div class="card" id="catalogo" style="width: 70rem;">
-      <div class="card-body">
-      </div>
-    </div>
-    
     <div class="card text-left" style="width: 70rem;">
       <div class="card-body moduloCarrito">
         <h1 class="card-title">Tu carrito</h1>
       </div>
     </div>
-    
+
 
     <div class="card text-center" style="width: 70rem;">
       <div class="card-body">
@@ -63,9 +60,6 @@
       </div>
     </div>
 
-    <div class="card miniCarrito">
-      <i id="cerrar2" class="fas fa-times"></i>
-    </div>
 
     <script src="./script.js"></script>
 </body>

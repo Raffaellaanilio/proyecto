@@ -1,4 +1,4 @@
-#map {
+#map{
     width: 800px;
     height: 400px;
     margin: auto;
@@ -54,7 +54,7 @@
 }
 
 .card{
-    padding: 50px;
+    padding: 10px;
     align-items: center;
     text-align: center;
 }
@@ -116,16 +116,6 @@ a:hover{
 background-color: antiquewhite;
 }
 
-.search-container button {
-    padding: 1px 1px;
-    margin-top: 8px;
-    margin-right: 16px;
-    background: #ddd;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
-    border-radius:5% ;
-  }
 
 input {
     width: 50%;
@@ -135,4 +125,51 @@ input {
     border: none;
     background-color:papayawhip;
     border-radius: 5%;
+}
+
+#productoagregado{
+    display:none;
+}
+
+#alertaCarrito{
+    display: none;
+  text-align: center;  
+}
+
+#cerrar:hover{
+    color: #333333;
+}
+
+.lista {
+    list-style: none;
+}
+
+.miniCarrito{
+    position: relative;
+    display: none;
+    background-color: #333333;
+    width: 800px;
+    height: 400px;
+}
+
+
+.moduloCarrito{
+    font-family: 'Lobster', cursive;
+    position: absolute;
+    margin-left: 40%;
+    background-color: burlywood;
+    width: 80vh;
+    height: fit-content;
+    border-radius: 3%;
+}
+
+.verCarrito{
+    font-weight: bold;
+}
+
+.agregado{
+    border-color: white;
+    border-style: solid;
+    border-width: 0.1;
+    margin: 5px;
 }
