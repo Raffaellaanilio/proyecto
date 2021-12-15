@@ -112,6 +112,16 @@ a:hover{
     padding: 20px;
 }
 
+.pedirInfo{
+    border-radius: 8%;
+    padding: 20px;
+}
+
+.info{
+   display: none;
+   padding:10px;
+}
+
 .carrito:hover{
 background-color: antiquewhite;
 }
@@ -145,10 +155,10 @@ input {
 }
 
 .miniCarrito{
-    position: relative;
     display: none;
+    position: relative;
     background-color: #333333;
-    width: 800px;
+    width: 700px;
     height: 400px;
 }
 

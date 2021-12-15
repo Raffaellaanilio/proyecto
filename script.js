@@ -2,30 +2,16 @@ const mostrarProductos = document.querySelector("#catalogo");
 const llenarCarrito = document.querySelector(".moduloCarrito")
 let i;
 
-let mymap = L.map('map').setView([-33.0508, -71.3692], 14);
-
-              L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                  maxZoom: 18,
-                  id: 'mapbox/streets-v11',
-                  tileSize: 512,
-                  zoomOffset: -1,
-                  accessToken: 'pk.eyJ1IjoicmFmZmFlbGxhYW5pbGlvIiwiYSI6ImNrZWlubncydjEwOGgyd21udHdmOWJ4M24ifQ.E2q7D7b-Je_x7VRjbqjAAA'
-              }).addTo(mymap);
-
-          //Puntos mapa
-              let marker1 = L.marker([-33.0480, -71.3691]).addTo(mymap);
-              let marker2 = L.marker([-33.0495, -71.3700]).addTo(mymap);
-
 // Creación de clase y constructor 
 class Producto {
-  constructor(id, nombre, categoria, precio, unidad, imagen){
+  constructor(id, nombre, categoria, precio, unidad, imagen, info){
     this.id = Number(id);
     this.nombre = nombre;
     this.categoria = categoria;
     this.precio = Number(precio);
     this.unidad = unidad;
     this.imagen = imagen;
+    this.info = info;
   }
 }
 
@@ -34,14 +20,14 @@ class Producto {
 let productos = [];
 
 // Se envian al array productos una serie de elementos nuevos de la clase Producto
-productos.push(new Producto (1,'Hallulla', 'Pan', 1000, 'kg', '<img src="./images/hallulla.jpg" alt="Hallulla">'));
-productos.push(new Producto (2,'Batido', 'Pan', 900, 'kg', '<img src="./images/batido.jpg" alt="Hallulla">'));
-productos.push(new Producto (3,'Amasado', 'Pan', 800, 'kg', '<img src="./images/amasado.jpg" alt="Hallulla">'));
-productos.push(new Producto (4,'Empolvado', 'Pastelería', 500, 'unidad', '<img src="./images/empolvado.jpg" alt="Empolvado">'));
-productos.push(new Producto (5,'Mantecado', 'Pastelería', 300, 'unidad', '<img src="./images/mantecado.jpg" alt="Mantecado">'));
-productos.push(new Producto (6,'Berlín', 'Pastelería', 700, 'unidad','<img src="./images/berlin.jpg" alt="Berlín">' ));
-productos.push(new Producto (7,'Raviol', 'Pastas', 5000, 'bandeja', '<img src="./images/raviol.jpg" alt="Raviol">'));
-productos.push(new Producto (8,'Fetuchini', 'Pastas', 3000, 'bandeja', '<img src="./images/fetuchini.jpg" alt="Fetuchini">'));
+productos.push(new Producto (1,'Hallulla', 'Pan', 1000, 'kg', '<img src="./images/hallulla.jpg" alt="Hallulla">', '<img src="./images/info_nutricional_hallulla.png">'));
+productos.push(new Producto (2,'Batido', 'Pan', 900, 'kg', '<img src="./images/batido.jpg" alt="Hallulla">', '<img src="./images/info_nutricional_batido.png">'));
+productos.push(new Producto (3,'Amasado', 'Pan', 800, 'kg', '<img src="./images/amasado.jpg" alt="Hallulla">', '<img src="./images/info_nutricional_amasado.png">'));
+productos.push(new Producto (4,'Empolvado', 'Pastelería', 500, 'unidad', '<img src="./images/empolvado.jpg" alt="Empolvado">', '<img src="./images/info_nutricional_empolvado.png">'));
+productos.push(new Producto (5,'Mantecado', 'Pastelería', 300, 'unidad', '<img src="./images/mantecado.jpg" alt="Mantecado">', '<img src="./images/info_nutricional_mantecado.png">'));
+productos.push(new Producto (6,'Berlín', 'Pastelería', 700, 'unidad','<img src="./images/berlin.jpg" alt="Berlín">', '<img src="./images/info_nutricional_berlin.png">'));
+productos.push(new Producto (7,'Raviol', 'Pastas', 5000, 'bandeja', '<img src="./images/raviol.jpg" alt="Raviol">', '<img src="./images/info_nutricional_raviol.png">'));
+productos.push(new Producto (8,'Fetuchini', 'Pastas', 3000, 'bandeja', '<img src="./images/fetuchini.jpg" alt="Fetuchini">', '<img src="./images/info_nutricional_fetuchini.png">'));
 
 //Creación de variable para crear producto, seleccionando un elemento HTML
 for (i = 0 ; i < productos.length ; i++){
@@ -52,9 +38,26 @@ for (i = 0 ; i < productos.length ; i++){
     <h3>${productos[i].nombre}</h3>
     <p>$${productos[i].precio}(${productos[i].unidad})</p>
     <button id="${i}" class="carrito" onclick="idProductosSeleccionados(${i})"><i class="fas fa-cart-plus"></i></button>
+    <button id="${i}" class="pedirInfo"><i class="fas fa-info-circle"></i></button>
+    <div id="${i}" class="info">${productos[i].info}</div>
   </div>
  `
 }
+
+//Mostrar información nutricional
+
+$(".pedirInfo").click(function() { 
+  $(".info").slideToggle()
+});
+
+//Agrandar imagen
+$(".info").click(function() { 
+  $(".info").animate({
+    left:'250px',
+    height: '+=50px',
+    width: '+=50px'
+  })
+});
 
 
 //Carrito
@@ -93,7 +96,7 @@ document.addEventListener('click', (e) => {
  })
 
 
- //remover elementos del array
+//remover elementos del array
 //setear en local storage
 
 const remove_localstorage = (element) =>{
@@ -115,19 +118,19 @@ const remove_localstorage = (element) =>{
   localStorage.setItem('id', JSON.stringify(carrito))
  }
  
+ 
 
  
 // Ventana de que producto se agregó satisfactoriamente
 
-/*  $(".carrito").click(function(){
+  $(".carrito").click(function(){
     $("#alertaCarrito").show();
     $("#alertaCarrito").html(`El producto
     <strong>${carrito[carrito.length-1].nombre}</strong> ha sido agregado al carrito.
     <p class="verCarrito"><a href="carrito.html">Ver carrito</a><p>
    `)
    $("#alertaCarrito").delay(2500).fadeOut(400);
-})  */
-
+})  
 
 
 //Abrir mini carrito
@@ -141,6 +144,75 @@ $(".cerrar").click(function(){
 $(".miniCarrito").hide();
 })
 
+// AJAX POST
+/*     $(document).ready(function () {
+      //Aqui se pega la URL del JSON que se quiere consumir; 
+      const URLApi =  'https://';
+      const infoAenviar = {mail: 'juan@gmail.com', contrasena : '1234'};
+      $("body").prepend("<button id='btn'>Enviar info a la API</button>");
+
+      //creamos el asincronismo para consurmir o enviar info a la API
+
+      $("#btn").click(function () { 
+      $.ajax({
+        method: "POST",
+        url: URLApi,
+        data: infoAenviar,
+        //dataType: "dataType",
+        success: function (response) {
+    
+        }
+      });
+        
+      });
+    }); */
+
+// API SHORTCUT
+
+  /*     const URLApi =  'https://';
+      const infoAenviar = {mail: 'juan@gmail.com', contrasena : '1234'};
+      $("body").prepend("<button id='btn'>Enviar info a la API</button>");
+
+      //Crear el evento y luego el asincronismo
+
+      $("#btn").click(function () { 
+        $.post(URLApi, infoAenviar,
+          function (infoAenviar, status) {
+            if(status === "success"){
+              $("body").prepend("<button id='btn'>Enviar info a la API shortcut</button>");
+            }else{
+              console.log("error")
+            }
+          },
+        );
+      }); */
+
+
+//AJAX GET API HARRY POTTER
+
+  /*     $("body").prepend("<button id='btn'>Traer personaje</button>");
+
+      urlHP = 'http://hp-api.herokuapp.com/api/characters'
+
+      $.get(urlHP, (response, status) => {
+        let contador = 0;
+        if (status === "success"){
+          $("#btn").click(function (event) { 
+            $("body").append(
+              `<div>
+              <tr>
+              ${contador+1}
+              </tr>
+              ${response[contador].name}<br>
+              ${response[contador].species}<br>
+              ${response[contador].house}<br>
+              </div>`
+            );      
+            contador++;
+          });
+        }
+      }
+      ); */
 
 /* 
 //crear un boton
@@ -188,21 +260,21 @@ $(".miniCarrito").hide();
 
 // crear elementos dom dinamicamente dentro de un fragment
 
-/* const fragment = document.createDocumentFragment()
-productos.forEach (item => {
-  const li = document.createElement('li')
-  li.classList.add('list')
-  const b = document.createElement('b')
-  b.textContent = 'Nombre: '
-  const span = document.createElement('span')
-  span.classList.add('text-danger')
-  span.textContent = JSON.stringify(item.nombre)
-  li.appendChild(b)
-  li.appendChild(span)
-  fragment.appendChild(li)
-})
+      /* const fragment = document.createDocumentFragment()
+      productos.forEach (item => {
+        const li = document.createElement('li')
+        li.classList.add('list')
+        const b = document.createElement('b')
+        b.textContent = 'Nombre: '
+        const span = document.createElement('span')
+        span.classList.add('text-danger')
+        span.textContent = JSON.stringify(item.nombre)
+        li.appendChild(b)
+        li.appendChild(span)
+        fragment.appendChild(li)
+      })
 
-  listaCarrito.appendChild(fragment) */
+        listaCarrito.appendChild(fragment) */
 
 
 
@@ -303,10 +375,4 @@ const verProductos = (productos) => {
             break;
         }
       } while ( opcion !== 4); */
-
-
-
-
-
-
 

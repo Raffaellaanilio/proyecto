@@ -19,7 +19,10 @@
     <link href="styles.css" rel="stylesheet" type="text/css">
     <title>Panadería</title>
 </head>
+
 <body>
+
+
     <div id="barra_navegacion">
       <a href="index.html"><p class="titulo">Mercado Panadero</p></a>
     </div>
@@ -76,16 +79,46 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-
-      <div class="card miniCarrito">
-        <i id="cerrar" class="fas fa-times cerrar"></i>
+    
+      <div class="card miniCarrito" style="width: 18rem;">
+        <div class="card-header">
+          Tu carrito
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
       </div>
           
     <div class="card m-0 row justify-content-center" id="barra_navegacion2">
       <div class="titulo">Encuéntranos</div>
       <div>Villa Alemana, Región de Valparaíso, Chile</div>
+
         <div class="card" id="map"></div>
+
   </div>
+  
+  <script>
+    let mymap = L.map('map').setView([-33.0508, -71.3692], 14);
+  
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox/streets-v11',
+      tileSize: 512,
+      zoomOffset: -1,
+      accessToken: 'pk.eyJ1IjoicmFmZmFlbGxhYW5pbGlvIiwiYSI6ImNrZWlubncydjEwOGgyd21udHdmOWJ4M24ifQ.E2q7D7b-Je_x7VRjbqjAAA'
+  }).addTo(mymap);
+  
+  //Puntos mapa
+  let marker1 = L.marker([-33.0480, -71.3691]).addTo(mymap);
+  let marker2 = L.marker([-33.0495, -71.3700]).addTo(mymap);
+</script>
+
     <script src="./script.js"></script>
+    
+ 
+
 </body>
 </html>
