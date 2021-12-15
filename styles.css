@@ -97,8 +97,8 @@ a:hover{
     font-family: 'Lobster', cursive;
     font-weight: normal;
     font-size: 20px;
-    width: 30%;
-    height: 60%;
+    width: fit-content;
+    height: fit-content;
     border-color: #333333;
     border-width: 1px;
     border-style: solid;
@@ -164,11 +164,12 @@ input {
 
 
 .moduloCarrito{
+    display: none;
     font-family: 'Lobster', cursive;
     position: absolute;
-    margin-left: 40%;
+    margin-left: 78%;
     background-color: burlywood;
-    width: 80vh;
+    width: 35rem;
     height: fit-content;
     border-radius: 3%;
 }

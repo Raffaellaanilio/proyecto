@@ -59,6 +59,10 @@ $(".info").click(function() {
   })
 });
 
+//Abrir carrito
+$(".botonMiniCarrito").click(function() { 
+  $(".moduloCarrito").toggle()
+});
 
 //Carrito
 let carrito = []; 
